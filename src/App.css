@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+body {
+    overflow: hidden;
+}
+
+.active {
+    color: #DDE2FF;
+    background-color: rgba(159, 162, 180, 8%);
+}
+.active::before{
+    content: "";
+    left: 0;
+    width: 3px;
+    height: 100%;
+    position: absolute;
+    background-color: #DDE2FF;
+}
