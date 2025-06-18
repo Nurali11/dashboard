@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <div className='flex justify-between'>
         <Navbar/>
-        <div className='w-[78%] h-[100vh] overflow-y-auto px-[30px] gap-[54px] py-[34px]'>
+        <div className='w-[78%] h-[100vh] header overflow-y-auto px-[30px] gap-[54px] py-[34px]'>
             <Header/>
             <PageRoutes/>
         </div>

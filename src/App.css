@@ -16,3 +16,6 @@ body {
     position: absolute;
     background-color: #DDE2FF;
 }
+.header {
+    background-color: rgba(55, 81, 255, 4%);
+}
