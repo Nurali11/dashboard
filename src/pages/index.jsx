@@ -1,5 +1,5 @@
 import OverView from "./OverView"
-import Tickets from "./Tickets"
+import Tickets from "./Ticket";
 import Articles from "./Articles"
 import Agents from "./Agents"
 import Ideas from "./Ideas"

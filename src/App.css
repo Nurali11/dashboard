@@ -19,3 +19,19 @@ body {
 .header {
     background-color: rgba(55, 81, 255, 4%);
 }
+.loading-img {
+    animation-name: loading;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes loading {
+    0% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(2.2);
+    }
+}

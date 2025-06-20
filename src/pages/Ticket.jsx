@@ -1,9 +1,15 @@
-import React from 'react'
+import Reac, { useContext } from 'react'
 import man from "../assets/images/photo.svg";
 import PriorityBtn from "../components/PriorityBtn";
 import { MoreIcon } from "../assets/icons";
+import { useNavigate } from 'react-router-dom';
+import TicketItem from '../components/TicketItem';
+import { Context } from '../Context/Context';
 
 const Tickets = () => {
+  const navigate = useNavigate();
+  const { searchRes, setSearchRes } = useContext(Context)
+  
   return (
     <div className="flex flex-col py-[32px] pb-[72px] bg-[#ffff] gap-[54px] border-[1px] rounded-[8px] border-[#DFE0EB]">
       <div className="flex items-center justify-between px-[32px]">
@@ -39,7 +45,7 @@ const Tickets = () => {
             </svg>
             <p>Filter</p>
           </div>
-          <button className="text-white px-[10px] py-[5px] rounded-[18px] flex items-center gap-[5px] bg-[#190d36]">
+          <button onClick={() => navigate("create")} className="text-white cursor-pointer px-[10px] py-[5px] rounded-[18px] flex items-center gap-[5px] bg-[#190d36]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -68,43 +74,9 @@ const Tickets = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="py-[24px] px-[31px] border-b-[2px] border-[#DFE0EB]">
-              <div className="flex items-center gap-[24px]">
-                <img src={man} className="w-[44px] h-[44px]" />
-                <div className="flex flex-col gap-1">
-                  <p className="text-[14px] font-semibold leading-5 tracking-[0.2px] text-[#252733]">
-                    Contact Email not Linked
-                  </p>
-                  <p className="text-[12px] text-[#C5C7CD] font-normal leading-4 tracking-[0.1px]">
-                    Updated 1 day ago
-                  </p>
-                </div>
-              </div>
-            </td>
-            <td className="py-[24px] border-b-[2px] border-[#DFE0EB] text-left space-y-1">
-              <p className="font-semibold text-[14px] leading-[20px] text-[#252733]">
-                Tom Cruise
-              </p>
-              <p className="text-[12px] text-[#C5C7CD] font-normal leading-4 tracking-[0.1px]">
-                on 24.05.2019
-              </p>
-            </td>
-            <td className="py-[24px] border-b-[2px] border-[#DFE0EB] space-y-1">
-              <p className="text-[14px] font-semibold leading-[20px] text-[#252733]">
-                May 26, 2019
-              </p>
-              <p className="text-[12px] text-[#C5C7CD] font-normal leading-4 tracking-[0.1px]">
-                6:30 PM
-              </p>
-            </td>
-            <td className="py-[24px] border-b-[2px] border-[#DFE0EB] items-left">
-              <PriorityBtn priorityId={3} />
-            </td>
-            <td className="py-[24px] px-[82px 41px] border-b-[2px] cursor-pointer border-[#DFE0EB] text-[#C5C7CD]">
-              <MoreIcon />
-            </td>
-          </tr>
+          {searchRes.map(item => (
+            <TicketItem key={item.id} item={item} />
+          ))}
         </tbody>
       </table>
     </div>
